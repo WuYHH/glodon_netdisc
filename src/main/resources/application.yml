@@ -1,0 +1,44 @@
+server:
+  port: 8089
+  servlet:
+    context-path: /cloudNetDisc
+knife4j:
+  enable: true
+spring:
+  servlet:
+    multipart:
+      max-file-size: 100MB
+      max-request-size: 500MB
+  mvc:
+    path match:
+      matching-strategy: ANT_PATH_MATCHER
+  datasource:
+    username: root
+    password: 1234
+    type: com.alibaba.druid.pool.DruidDataSource
+#    url: jdbc:mysql://10.8.54.80:3306/usr?useUnicode=true&characterEncoding=utf-8&serverTimezone=UTC&allowMultiQueries=true
+    url: jdbc:mysql://localhost:3306/cloudNetdisc?useUnicode=true&characterEncoding=utf-8&serverTimezone=UTC&allowMultiQueries=true
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  redis:
+    host: localhost
+    port: 6379
+    timeout: 10000ms
+    lettuce:
+      pool:
+        max-active: 8
+        max-wait: -1ms
+        max-idle: 8
+        min-idle: 0
+
+
+mybatis:
+  type-aliases-package: com.glodon.glodon_netdisc
+  mapper-locations: classpath:/mapper/*.xml
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+local-file:
+  port: 8001
+  #????/
+  root: /Users/wuyuhan/Desktop/homework/glodon_netdisc/
+  address: http://10.8.80.24:8001/
