@@ -195,8 +195,9 @@ public class FileServiceImpl implements FileService {
     }
     @Transactional
     public void insertFile(String uploadRoot, String address, MultipartFile file, Integer userId){
-        // 判断上传文件容量是否超过限制
+        // 判断上传文件容量是否超过限制ceshi
         Long userFileSize = getFileSize(userId);
+        System.out.println();
         int siz = userFileSize == null ? 0 : userFileSize.intValue();
         if (file.getSize() + siz > MAXSIZE) {
             throw new RuntimeException("上传文件容量超过限制");
